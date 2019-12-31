@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+project.group = ''
+project.version = '0.0.1-SNAPSHOT'
+project.description = "adventofcode"
+
+project.sourceCompatibility = "8"
+project.targetCompatibility = "8"
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    maven { url "https://repo.maven.apache.org/maven2" }
+    mavenCentral()
+}
+dependencies {
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'org.apache.logging.log4j:log4j-api:2.13.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.13.0'
+
+    implementation ('com.googlecode.json-simple:json-simple:1.1.1') {
+        exclude group: "junit", module: "junit"
+    }
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.2"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+}
+
+test {
+    useJUnitPlatform {
+    }
+}
+
+
