@@ -5,8 +5,11 @@ project.group = ''
 project.version = '0.0.1-SNAPSHOT'
 project.description = "adventofcode"
 
-project.sourceCompatibility = "8"
-project.targetCompatibility = "8"
+
+compileJava {
+    sourceCompatibility = 13
+    targetCompatibility = 13
+}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
